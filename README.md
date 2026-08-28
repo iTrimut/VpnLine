@@ -2,9 +2,9 @@
 
 # VpnLine 🔒
 
-**私人 VPN 一键管理，Claude Code 自动化技能**
+**私人 VPN 一键管理，通用 Agent 自动化技能**
 
-Manage your private VPN infrastructure with Claude Code automation.
+Manage your private VPN infrastructure with agent automation.
 
 [![GitHub Stars](https://img.shields.io/github/stars/iTrimut/VpnLine?style=social)](https://github.com/iTrimut/VpnLine/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/iTrimut/VpnLine)](https://github.com/iTrimut/VpnLine/issues)
@@ -19,7 +19,7 @@ Manage your private VPN infrastructure with Claude Code automation.
 
 ## 项目简介
 
-VpnLine 是一个 **Claude Code Skill**，用于管理个人 VPN 基础设施。当用户在 Claude Code 中提到 VPN 相关操作时，自动加载此技能并执行对应任务。
+VpnLine 是一个 **Agent Skill（通用智能体技能）**，用于管理个人 VPN 基础设施。当你在任意支持 Agent Skills 的智能体（Claude Code、DeepSeek Harness、Cursor、Windsurf、Codex 等）中提到 VPN 相关操作时，技能自动加载并执行对应任务。
 
 支持 macOS、iPhone、Android 多平台，双线路冗余架构，本地代理自动切换。
 
@@ -27,7 +27,7 @@ VpnLine 是一个 **Claude Code Skill**，用于管理个人 VPN 基础设施。
 
 ```
 ┌──────────────────────────────────────────────┐
-│              Claude Code Agent                │
+│         Agent（Claude Code / DSH 等）        │
 │         用户提到 VPN 相关操作时                  │
 │         自动加载 VpnLine Skill                │
 └──────────────────┬───────────────────────────┘
@@ -54,7 +54,7 @@ VpnLine 是一个 **Claude Code Skill**，用于管理个人 VPN 基础设施。
 
 ## 功能特性 🎯
 
-- **Claude Code 集成** — 在 Claude Code 中提到 VPN 即自动加载技能
+- **多 Agent 兼容** — 标准 Agent Skills 格式（SKILL.md），Claude Code / DSH / Cursor / Windsurf 等开箱即用
 - **双线路冗余** — Shadowsocks 主线路 + IKEv2 备用线路
 - **多平台支持** — macOS 菜单栏开关 / iPhone Shadowrocket / Android SS 客户端
 - **本地代理自动切换** — VPN 连断时代理环境变量自动设置/清除，零手动操作
@@ -107,7 +107,20 @@ ssh root@server "sudo ikev2.sh --exportclient <name>"
 
 ## 安装部署 📥
 
-### ① 克隆到 Claude Code
+### ① 安装到你的智能体
+
+VpnLine 采用标准 **Agent Skills** 格式（`SKILL.md` + frontmatter），兼容所有主流智能体。将技能目录（`SKILL.md`、`references/`）复制到所用智能体的 skills 目录，目录名取 `upup-vpn`：
+
+| 智能体 | 安装路径 |
+|--------|----------|
+| Claude Code | `.claude/skills/upup-vpn/` |
+| DeepSeek Harness (DSH) | `~/.dsh/skills/upup-vpn/`（用户级全局） |
+| Cursor | `.cursor/skills/upup-vpn/` |
+| Windsurf | `.windsurf/skills/upup-vpn/` |
+| GitHub Copilot | `.github/skills/upup-vpn/` |
+| OpenCode / Codex | `.opencode/skills/upup-vpn/` / `.codex/skills/upup-vpn/` |
+
+以 Claude Code 为例：
 
 ```bash
 cd your-project
@@ -116,7 +129,7 @@ git clone https://github.com/iTrimut/VpnLine.git .claude/skills/upup-vpn
 
 ### ② 验证安装
 
-在 Claude Code 中输入 VPN 相关关键词（如"连接 VPN"），确认 Skill 自动加载。
+在任意上述智能体中输入 VPN 相关关键词（如"连接 VPN"），确认 Skill 自动加载。
 
 ### ③ 查看凭据模板
 
@@ -132,7 +145,7 @@ mkdir -p ~/.vpnline
 # 字段说明见 ~/.vpnline/README.md
 ```
 
-Claude Code 每次处理 VPN 任务时自动读取该文件；`.vpnline` 目录请勿放进任何 git 仓库。
+智能体每次处理 VPN 任务时自动读取该文件；`.vpnline` 目录请勿放进任何 git 仓库。
 
 ## 本地代理自动切换 ⚡
 
@@ -193,7 +206,7 @@ A: 重启 ss-local 或使用脚本重连：`/Users/xiaan/Documents/VPNTool/ss_vp
 VpnLine/
 ├── README.md                    # 项目说明（本文件）
 ├── README_EN.md                 # English version
-├── SKILL.md                     # Claude Code Skill 主文件
+├── SKILL.md                     # Agent Skill 主文件（标准格式）
 ├── LICENSE                      # MIT License
 └── references/
     └── credentials.md           # 服务器配置模板（真实密码仅本地保存）

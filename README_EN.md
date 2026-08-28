@@ -2,9 +2,9 @@
 
 # VpnLine 🔒
 
-**Private VPN management, Claude Code automation skill**
+**Private VPN management, universal agent automation skill**
 
-Manage your private VPN infrastructure with Claude Code automation.
+Manage your private VPN infrastructure with agent automation.
 
 [![GitHub Stars](https://img.shields.io/github/stars/iTrimut/VpnLine?style=social)](https://github.com/iTrimut/VpnLine/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/iTrimut/VpnLine)](https://github.com/iTrimut/VpnLine/issues)
@@ -19,13 +19,13 @@ Manage your private VPN infrastructure with Claude Code automation.
 
 ## About
 
-VpnLine is a **Claude Code Skill** for managing personal VPN infrastructure. When you mention VPN-related operations in Claude Code, this skill is automatically loaded and executed.
+VpnLine is an **Agent Skill** for managing personal VPN infrastructure. When you mention VPN-related operations in any agent that supports Agent Skills (Claude Code, DeepSeek Harness, Cursor, Windsurf, Codex, etc.), the skill is automatically loaded and executed.
 
 Supports macOS, iPhone, and Android with dual-line redundancy architecture and automatic local proxy switching.
 
 ## Features 🎯
 
-- **Claude Code Integration** — mentioning VPN auto-loads the skill
+- **Multi-agent Compatible** — standard Agent Skills format (SKILL.md), works out of the box in Claude Code / DSH / Cursor / Windsurf / etc.
 - **Dual-line Redundancy** — Shadowsocks primary + IKEv2 fallback
 - **Multi-platform** — macOS menu bar toggle / iPhone Shadowrocket / Android SS client
 - **Auto Proxy Switching** — proxy env vars auto-set/clear on VPN connect/disconnect
@@ -57,7 +57,21 @@ Or terminal:
 
 ## Installation 📥
 
-### ① Clone to Claude Code
+### ① Install into your agent
+
+VpnLine uses the standard **Agent Skills** format (`SKILL.md` + frontmatter) and works in all major agents.
+Copy the skill folder (`SKILL.md`, `references/`) into your agent's skills directory, named `upup-vpn`:
+
+| Agent | Install path |
+|-------|--------------|
+| Claude Code | `.claude/skills/upup-vpn/` |
+| DeepSeek Harness (DSH) | `~/.dsh/skills/upup-vpn/` (user-level, global) |
+| Cursor | `.cursor/skills/upup-vpn/` |
+| Windsurf | `.windsurf/skills/upup-vpn/` |
+| GitHub Copilot | `.github/skills/upup-vpn/` |
+| OpenCode / Codex | `.opencode/skills/upup-vpn/` / `.codex/skills/upup-vpn/` |
+
+Example (Claude Code):
 
 ```bash
 cd your-project
@@ -66,7 +80,7 @@ git clone https://github.com/iTrimut/VpnLine.git .claude/skills/upup-vpn
 
 ### ② Verify
 
-Type VPN-related keywords in Claude Code (e.g. "connect VPN") to confirm the skill loads.
+Type VPN-related keywords in your agent (e.g. "connect VPN") to confirm the skill loads.
 
 ### ③ Configure Credentials
 

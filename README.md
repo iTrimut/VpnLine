@@ -1,15 +1,15 @@
 <div align="center">
 
-# upup-vpn-skill 🔒
+# VpnLine 🔒
 
 **私人 VPN 一键管理，Claude Code 自动化技能**
 
 Manage your private VPN infrastructure with Claude Code automation.
 
-[![GitHub Stars](https://img.shields.io/github/stars/iTrimut/upup-vpn-skill?style=social)](https://github.com/iTrimut/upup-vpn-skill/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/iTrimut/upup-vpn-skill)](https://github.com/iTrimut/upup-vpn-skill/issues)
-[![GitHub Forks](https://img.shields.io/github/forks/iTrimut/upup-vpn-skill?style=social)](https://github.com/iTrimut/upup-vpn-skill/network/members)
-[![License](https://img.shields.io/github/license/iTrimut/upup-vpn-skill)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/iTrimut/VpnLine?style=social)](https://github.com/iTrimut/VpnLine/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/iTrimut/VpnLine)](https://github.com/iTrimut/VpnLine/issues)
+[![GitHub Forks](https://img.shields.io/github/forks/iTrimut/VpnLine?style=social)](https://github.com/iTrimut/VpnLine/network/members)
+[![License](https://img.shields.io/github/license/iTrimut/VpnLine)](LICENSE)
 
 [English](README_EN.md) | [中文](README.md)
 
@@ -19,7 +19,7 @@ Manage your private VPN infrastructure with Claude Code automation.
 
 ## 项目简介
 
-upup-vpn-skill 是一个 **Claude Code Skill**，用于管理个人 VPN 基础设施。当用户在 Claude Code 中提到 VPN 相关操作时，自动加载此技能并执行对应任务。
+VpnLine 是一个 **Claude Code Skill**，用于管理个人 VPN 基础设施。当用户在 Claude Code 中提到 VPN 相关操作时，自动加载此技能并执行对应任务。
 
 支持 macOS、iPhone、Android 多平台，双线路冗余架构，本地代理自动切换。
 
@@ -29,7 +29,7 @@ upup-vpn-skill 是一个 **Claude Code Skill**，用于管理个人 VPN 基础�
 ┌──────────────────────────────────────────────┐
 │              Claude Code Agent                │
 │         用户提到 VPN 相关操作时                  │
-│         自动加载 upup-vpn-skill               │
+│         自动加载 VpnLine Skill                │
 └──────────────────┬───────────────────────────┘
                    │
     ┌──────────────┼──────────────┐
@@ -111,16 +111,17 @@ ssh root@server "sudo ikev2.sh --exportclient <name>"
 
 ```bash
 cd your-project
-git clone https://github.com/iTrimut/upup-vpn-skill.git .claude/commands/upup-vpn
+git clone https://github.com/iTrimut/VpnLine.git .claude/skills/upup-vpn
 ```
 
 ### ② 验证安装
 
 在 Claude Code 中输入 VPN 相关关键词（如"连接 VPN"），确认 Skill 自动加载。
 
-### ③ 配置凭据
+### ③ 查看凭据模板
 
-在 `references/credentials.md` 中填写服务器 IP、密码等敏感信息（此文件不入库）。
+`references/credentials.md` 是已入库的**非敏感模板**（服务器 IP、端口、协议等）。
+真实密码 / 密钥 / token 只保存在本地（`TOOLS.md` / `memory/`），**不要提交到仓库**。
 
 ## 本地代理自动切换 ⚡
 
@@ -160,8 +161,8 @@ ssh -i ~/.ssh/id_ed25519 root@<SERVER_IP> \
 
 ```
 VPN, 连接, 断开, Shadowsocks, SS, 代理, proxy,
-翻墙, 科学上网, DigitalOcean, 服务器, IP 地址,
-ss-local, IKEv2, L2TP, 网络工具
+翻墙, 科学上网, DigitalOcean, droplet, 服务器迁移,
+ss-local, IKEv2, L2TP, 新设备配置, 检查/更换 IP 位置
 ```
 
 ## 常见问题 🤔
@@ -178,17 +179,18 @@ A: 重启 ss-local 或使用脚本重连：`/Users/xiaan/Documents/VPNTool/ss_vp
 ## 文件结构
 
 ```
-upup-vpn-skill/
+VpnLine/
 ├── README.md                    # 项目说明（本文件）
+├── README_EN.md                 # English version
 ├── SKILL.md                     # Claude Code Skill 主文件
-├── UPDATE-2026-06-01.md         # 更新记录
+├── LICENSE                      # MIT License
 └── references/
-    └── credentials.md           # 服务器配置（敏感信息不入库）
+    └── credentials.md           # 服务器配置模板（真实密码仅本地保存）
 ```
 
 ## 反馈建议 📢
 
-欢迎提交 [Issue](https://github.com/iTrimut/upup-vpn-skill/issues) 和 [Pull Request](https://github.com/iTrimut/upup-vpn-skill/pulls)。
+欢迎提交 [Issue](https://github.com/iTrimut/VpnLine/issues) 和 [Pull Request](https://github.com/iTrimut/VpnLine/pulls)。
 
 ## 许可证 📝
 

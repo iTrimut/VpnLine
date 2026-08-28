@@ -8,6 +8,7 @@
 *credentials*
 *.token
 *.log
+.vpnline/
 
 # temp files
 /tmp/

@@ -1,7 +1,8 @@
 # upup-vpn Credentials & Server Info
 
 > ⚠️ **敏感信息不入库**：本文件是**模板**，仅包含非敏感的基础设施信息（IP、端口、协议等），
-> 供技能加载时读取。真实密码 / 密钥 / token 只保存在本地（`TOOLS.md` / `memory/`），绝不提交到仓库。
+> 供技能加载时读取。真实密码 / 密钥 / token 统一存放在本机 `~/.vpnline/upup.secrets.json`
+> （详见 `~/.vpnline/README.md`），绝不提交到仓库。
 
 ## Server
 
@@ -22,5 +23,12 @@
 - `/root/vpnclient.sswan` — Android StrongSwan
 - `/root/vpnclient.p12` — 证书文件
 - 重新导出: `ssh root@<IP> "sudo ikev2.sh --exportclient <name>"`
+
+## 真实凭据（不入库）
+
+- 位置: `~/.vpnline/upup.secrets.json`（本机，Mac / Windows 通用）
+- 内容: Shadowsocks 密码、DigitalOcean API token 等
+- 若缺失: 按 `~/.vpnline/README.md` 从 Mac 的 `/opt/homebrew/etc/shadowsocks-libev.json` 与 `TOOLS.md`/`memory/` 填充
+- 规则: 任何 VPN 任务开始时都要读取该文件；禁止打印 / 提交 secret 值
 
 *Actual passwords and tokens are stored locally, not in this repository.*

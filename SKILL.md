@@ -32,14 +32,19 @@ The server is a **DigitalOcean droplet** in San Francisco (SFO3).
 
 ### When a user asks for VPN help:
 
-1. **Check if the server is running** — SSH in and verify services
-2. **Check which client they're on** — Different setup per platform
-3. **Use credentials from reference** — Never invent or ask user for creds
+1. **Read the two reference files** — infra facts from `references/credentials.md`,
+   real secrets from `~/.vpnline/upup.secrets.json` (local, outside this repo)
+2. **Check if the server is running** — SSH in and verify services
+3. **Check which client they're on** — Different setup per platform
+4. **Use credentials from the secrets file** — Never invent or ask user for creds
 
 ### Quick Reference
 
-All credentials, server IPs, and client configs are in `references/credentials.md`.
-Read that file at the start of any VPN task.
+- `references/credentials.md` (this skill) — non-sensitive infra facts (server IP, ports, protocol)
+- `~/.vpnline/upup.secrets.json` (local machine) — real secrets (SS password, DO token)
+
+Read **both** at the start of any VPN task. Never print secret values or write them into
+this repo. If the secrets file is missing, ask the user to fill it (see `~/.vpnline/README.md`).
 
 ## Client Setup Guides
 

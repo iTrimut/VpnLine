@@ -121,7 +121,18 @@ git clone https://github.com/iTrimut/VpnLine.git .claude/skills/upup-vpn
 ### ③ 查看凭据模板
 
 `references/credentials.md` 是已入库的**非敏感模板**（服务器 IP、端口、协议等）。
-真实密码 / 密钥 / token 只保存在本地（`TOOLS.md` / `memory/`），**不要提交到仓库**。
+
+### ④ 配置本地密钥（一次性）
+
+真实密码 / token 统一存放在本机 `~/.vpnline/upup.secrets.json`（**不在仓库里**）：
+
+```bash
+mkdir -p ~/.vpnline
+# 从 Mac 的 /opt/homebrew/etc/shadowsocks-libev.json 复制 SS 密码填入
+# 字段说明见 ~/.vpnline/README.md
+```
+
+Claude Code 每次处理 VPN 任务时自动读取该文件；`.vpnline` 目录请勿放进任何 git 仓库。
 
 ## 本地代理自动切换 ⚡
 

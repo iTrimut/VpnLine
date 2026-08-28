@@ -71,7 +71,13 @@ Type VPN-related keywords in Claude Code (e.g. "connect VPN") to confirm the ski
 ### ③ Configure Credentials
 
 `references/credentials.md` is a committed **non-sensitive template** (server IP, ports, protocol).
-Real passwords / keys / tokens live locally only (`TOOLS.md` / `memory/`) — **never commit them**.
+Real passwords / tokens live in `~/.vpnline/upup.secrets.json` (local, outside this repo) — **never commit them**.
+
+```bash
+mkdir -p ~/.vpnline
+# fill SS password from Mac: /opt/homebrew/etc/shadowsocks-libev.json
+# schema: see ~/.vpnline/README.md
+```
 
 ## FAQ 🤔
 

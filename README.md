@@ -107,9 +107,21 @@ ssh root@server "sudo ikev2.sh --exportclient <name>"
 
 ## 安装部署 📥
 
-### ① 安装到你的智能体
+### ① 一键安装（推荐）
 
-VpnLine 采用标准 **Agent Skills** 格式（`SKILL.md` + frontmatter），兼容所有主流智能体。将技能目录（`SKILL.md`、`references/`）复制到所用智能体的 skills 目录，目录名取 `upup-vpn`：
+```bash
+git clone https://github.com/iTrimut/VpnLine.git
+cd VpnLine
+bash install.sh                  # 自动检测当前智能体并安装（项目级）
+bash install.sh --user           # 用户级安装（所有项目可用；DSH 固定用户级）
+bash install.sh --agent claude   # 也可用 --agent 指定智能体
+```
+
+支持自动检测：Claude Code、DeepSeek Harness (DSH)、Cursor、Windsurf、GitHub Copilot、OpenCode、Codex。
+
+### ② 手动安装
+
+也可以把技能目录（`SKILL.md`、`references/`）复制到所用智能体的 skills 目录，目录名取 `upup-vpn`：
 
 | 智能体 | 安装路径 |
 |--------|----------|
@@ -127,15 +139,15 @@ cd your-project
 git clone https://github.com/iTrimut/VpnLine.git .claude/skills/upup-vpn
 ```
 
-### ② 验证安装
+### ③ 验证安装
 
 在任意上述智能体中输入 VPN 相关关键词（如"连接 VPN"），确认 Skill 自动加载。
 
-### ③ 查看凭据模板
+### ④ 查看凭据模板
 
 `references/credentials.md` 是已入库的**非敏感模板**（服务器 IP、端口、协议等）。
 
-### ④ 配置本地密钥（一次性）
+### ⑤ 配置本地密钥（一次性）
 
 真实密码 / token 统一存放在本机 `~/.vpnline/upup.secrets.json`（**不在仓库里**）：
 
@@ -208,6 +220,7 @@ VpnLine/
 ├── README_EN.md                 # English version
 ├── SKILL.md                     # Agent Skill 主文件（标准格式）
 ├── LICENSE                      # MIT License
+├── install.sh                   # 一键安装脚本（多智能体自动检测）
 └── references/
     └── credentials.md           # 服务器配置模板（真实密码仅本地保存）
 ```

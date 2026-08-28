@@ -57,10 +57,21 @@ Or terminal:
 
 ## Installation 📥
 
-### ① Install into your agent
+### ① One-click install (recommended)
 
-VpnLine uses the standard **Agent Skills** format (`SKILL.md` + frontmatter) and works in all major agents.
-Copy the skill folder (`SKILL.md`, `references/`) into your agent's skills directory, named `upup-vpn`:
+```bash
+git clone https://github.com/iTrimut/VpnLine.git
+cd VpnLine
+bash install.sh                  # auto-detect agent and install (project-level)
+bash install.sh --user           # user-level install (all projects; DSH is always user-level)
+bash install.sh --agent claude   # or force a specific agent
+```
+
+Auto-detects: Claude Code, DeepSeek Harness (DSH), Cursor, Windsurf, GitHub Copilot, OpenCode, Codex.
+
+### ② Manual install
+
+You can also copy the skill folder (`SKILL.md`, `references/`) into your agent's skills directory, named `upup-vpn`:
 
 | Agent | Install path |
 |-------|--------------|
@@ -78,11 +89,11 @@ cd your-project
 git clone https://github.com/iTrimut/VpnLine.git .claude/skills/upup-vpn
 ```
 
-### ② Verify
+### ③ Verify
 
 Type VPN-related keywords in your agent (e.g. "connect VPN") to confirm the skill loads.
 
-### ③ Configure Credentials
+### ④ Configure Credentials
 
 `references/credentials.md` is a committed **non-sensitive template** (server IP, ports, protocol).
 Real passwords / tokens live in `~/.vpnline/upup.secrets.json` (local, outside this repo) — **never commit them**.

@@ -6,9 +6,9 @@
 
 Manage your private VPN infrastructure with agent automation.
 
-[![GitHub Stars](https://img.shields.io/github/stars/iTrimut/VpnLine?style=social)](https://github.com/iTrimut/VpnLine/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/iTrimut/VpnLine)](https://github.com/iTrimut/VpnLine/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/iTrimut/VpnLine)](https://github.com/iTrimut/VpnLine/issues)
-[![GitHub Forks](https://img.shields.io/github/forks/iTrimut/VpnLine?style=social)](https://github.com/iTrimut/VpnLine/network/members)
+[![GitHub Forks](https://img.shields.io/github/forks/iTrimut/VpnLine)](https://github.com/iTrimut/VpnLine/network/members)
 [![License](https://img.shields.io/github/license/iTrimut/VpnLine)](LICENSE)
 
 [English](README_EN.md) | [中文](README.md)
